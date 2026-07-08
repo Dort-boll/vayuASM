@@ -297,25 +297,10 @@ export default function App() {
       }
     }
 
-    // Try fetching from server-side endpoint first (optimal for Node full-stack Cloud Run deployment)
+    // Direct client-side intelligence compilation - 100% frontend optimized
     try {
       // Allow minor delay for user interface scanner sweep animations
-      await new Promise(resolve => setTimeout(resolve, 800));
-      const res = await fetch(`/api/intel?q=${encodeURIComponent(targetQuery.trim())}`);
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data.query) {
-          setProfile(data);
-          setLoading(false);
-          return;
-        }
-      }
-    } catch (serverError) {
-      console.log("Server intel API not reachable (standard on static Cloudflare Pages hosting). Falling back to direct browser resolution.", serverError);
-    }
-
-    // Direct client-side intelligence compilation - 100% frontend optimized fallback
-    try {
+      await new Promise(resolve => setTimeout(resolve, 600));
       const data = getProfile(targetQuery);
       setProfile(data);
     } catch (err) {
