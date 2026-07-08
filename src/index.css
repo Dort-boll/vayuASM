@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Cyberpunk military command overlays and helper utilities */
+@layer base {
+  body {
+    background-color: #000000; /* Pure black background */
+    color: #f3f4f6;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+  }
+
+  /* Custom high-tech glowing scanlines */
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0),
+      rgba(255,255,255,0) 50%,
+      rgba(0, 229, 255, 0.05) 50%,
+      rgba(0, 229, 255, 0.05)
+    );
+    background-size: 100% 4px;
+  }
+
+  /* Custom terminal-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(3, 7, 18, 0.9);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 229, 255, 0.2);
+    border-radius: 3px;
+    border: 1px solid rgba(0, 229, 255, 0.1);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 229, 255, 0.4);
+  }
+}
+
+/* Glassmorphism Liquid Glass overlays */
+.glass-panel {
+  background: rgba(10, 15, 30, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-purple {
+  background: rgba(15, 10, 30, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow highlights */
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+}
+
+.glow-rose {
+  box-shadow: 0 0 15px rgba(255, 61, 113, 0.25);
+}
+
+/* Pulsing radar effect */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: radar-pulse 3s cubic-bezier(0.21, 0.53, 0.38, 0.9) infinite;
+}
+
+/* Custom DNA double-helix ring styling */
+.dna-dot {
+  animation: float-dna 4s ease-in-out infinite alternate;
+}
+
+@keyframes float-dna {
+  0% {
+    transform: translateY(-4px) scale(0.95);
+  }
+  100% {
+    transform: translateY(4px) scale(1.05);
+  }
+}

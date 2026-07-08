@@ -1,0 +1,6 @@
+{
+  "name": "VAYU ASM",
+  "description": "Internet-scale attack surface management, cyber threat intelligence, threat DNA profile, and high-fidelity browser-based tactical intelligence compiler.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
